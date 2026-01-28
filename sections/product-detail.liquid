@@ -1,7 +1,7 @@
 {{ 'product-detail.css' | asset_url | stylesheet_tag }}
 
 {% if product != blank or request.design_mode %}
-  <section class="product-detail color-scheme-{{ section.settings.color_scheme }}">
+  <section class="product-detail color-{{ section.settings.color_scheme }}">
     <div class="container">
       <div class="product-content">
         <!-- LEFT : PRODUCT IMAGES -->
@@ -31,19 +31,17 @@
             </div>
 
             {% if section.blocks.size > 0 %}
-              
-                {% for block in section.blocks %}
-                  {% if block.type == 'icon' and block.settings.icon_image != blank %}
-                    <div class="icon">
-                      {{
-                        block.settings.icon_image
-                        | image_url: width: 500
-                        | image_tag: loading: 'lazy', alt: block.settings.icon_image.alt
-                      }}
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              
+              {% for block in section.blocks %}
+                {% if block.type == 'icon' and block.settings.icon_image != blank %}
+                  <div class="icon">
+                    {{
+                      block.settings.icon_image
+                      | image_url: width: 500
+                      | image_tag: loading: 'lazy', alt: block.settings.icon_image.alt
+                    }}
+                  </div>
+                {% endif %}
+              {% endfor %}
             {% endif %}
           </div>
         </div>

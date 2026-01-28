@@ -146,11 +146,7 @@
 }
 
 @media (max-width: 64rem) {
-    .journey-card {
-        .journey-title {
-            display: none;
-        }
-    }
+
 
     .journey-next-arrow {
         right: -1rem;
@@ -161,6 +157,12 @@
     .start-journey {
         .startjourney-content {
             justify-content: center;
+        }
+    }
+
+    .journey-card {
+        .journey-title {
+            display: none !important;
         }
     }
 

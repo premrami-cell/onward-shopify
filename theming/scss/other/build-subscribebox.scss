@@ -2,7 +2,7 @@
     width: 100%;
     padding-top: 6.25rem;
     position: relative;
-    margin-bottom: -184px;
+    margin-bottom: -11.5rem;
     z-index: 1;
 
     .subscribe-box {
@@ -70,7 +70,7 @@
                         align-items: center;
                         gap: 1.0625rem;
                         padding: 1.4375rem 1.8125rem 1.4375rem 2.1875rem;
-                        color: var(--color-white);
+                        color: rgb(var(--color-button-text));
                         width: 100%;
                         text-decoration: none;
                         transition: all 0.3s ease;

@@ -74,9 +74,9 @@
               --theme-body-size: {{ settings.body_font_size }}rem;
 
               /* LAYOUT */
-              --theme-container-md: {{ settings.container_md }}rem;
+              --theme-container-md: {{ settings.page_width | plus: 48 }}px;
               --theme-container-lg: {{ settings.container_lg }}rem;
-              --theme-column-gap: {{ settings.column_gap }}rem;
+              --theme-column-gap: {{ settings.spacing_grid_vertical }}px;
             }
     </style>
 

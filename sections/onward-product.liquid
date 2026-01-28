@@ -1,66 +1,105 @@
 {{ 'onward-product.css' | asset_url | stylesheet_tag }}
 
-<section class="onwards-product color-scheme-{{ section.settings.color_scheme }}">
-  <div class="container">
-    <div class="onward-can">
-      <!-- Title -->
-      <div class="products-title">
-        <h2>{{ section.settings.heading }}</h2>
-        <p>{{ section.settings.description }}</p>
-      </div>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-      <!-- Product Grid -->
-      <div class="onward-products">
-        {% if collection %}
-          {% for product in collection.products %}
-            <a href="{{ product.url }}" class="product-card">
-              <div class="product-image">
-                {%- assign hover_video = null -%}
-                {% for media in product.media %}
-                  {% if media.media_type == 'video' %}
-                    {% assign hover_video = media %}
-                    {% break %}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="onwards-product section-{{ section.id }}-padding  color-{{ section.settings.color_scheme }}">
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    <div class="container">
+      <div class="onward-can">
+        <!-- Title -->
+        {% assign selected_collection = section.settings.collection %}
+
+        <div class="products-title">
+          {% if selected_collection != blank and selected_collection.title != blank %}
+            <h2>{{ selected_collection.title }}</h2>
+          {% else %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+
+          {% if selected_collection != blank and selected_collection.description != blank %}
+            <p>{{ selected_collection.description }}</p>
+          {% else %}
+            <p>{{ section.settings.description }}</p>
+          {% endif %}
+        </div>
+
+        <!-- Product Grid -->
+        <div class="onward-products">
+          {% if collection %}
+            {% for product in collection.products %}
+              <a
+                href="{{ product.url }}"
+                class="product-card {% if hover_video %}has-video{% else %}no-video{% endif %}"
+                data-has-video="{% if hover_video %}true{% else %}false{% endif %}"
+              >
+                <div class="product-image">
+                  <!-- background layer (hidden by default) -->
+                  <div class="product-bg"></div>
+
+                  {%- assign hover_video = null -%}
+                  {% for media in product.media %}
+                    {% if media.media_type == 'video' %}
+                      {% assign hover_video = media %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if hover_video %}
+                    <video class="hover-video" muted loop playsinline preload="none">
+                      <source src="{{ hover_video.sources[0].url }}" type="video/mp4">
+                    </video>
                   {% endif %}
-                {% endfor %}
 
-                {% if hover_video %}
-                  <video class="hover-video" muted loop playsinline preload="none">
-                    <source src="{{ hover_video.sources[0].url }}" type="video/mp4">
-                  </video>
-                {% endif %}
+                  {% if product.featured_image %}
+                    {{
+                      product.featured_image
+                      | image_url: width: 600
+                      | image_tag: alt: product.title, loading: 'lazy'
+                    }}
+                  {% endif %}
+                </div>
 
-                {% if product.featured_image %}
-                  {{ product.featured_image | image_url: width: 600 | image_tag: alt: product.title, loading: 'lazy' }}
-                {% endif %}
-              </div>
-
-              <div class="product-title">
-                {{ product.title }}
-                <svg
-                  width="40"
-                  height="15"
-                  viewBox="0 0 40 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
+                <div class="product-title">
+                  {{ product.title }}
+                  <svg
+                    width="40"
+                    height="15"
+                    viewBox="0 0 40 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
                       d="M39.7071 8.07112C40.0976 7.68059 40.0976 7.04743 39.7071 6.6569L33.3431 0.292943C32.9526 -0.0975814 32.3195 -0.0975814 31.9289 0.292943C31.5384 0.683467 31.5384 1.31663 31.9289 1.70716L37.5858 7.36401L31.9289 13.0209C31.5384 13.4114 31.5384 14.0446 31.9289 14.4351C32.3195 14.8256 32.9526 14.8256 33.3431 14.4351L39.7071 8.07112ZM0 7.36401L8.74228e-08 8.36401L39 8.36401L39 7.36401L39 6.36401L-8.74228e-08 6.36401L0 7.36401Z"
                       fill="#141429" />
-                </svg>
-              </div>
-            </a>
-          {% endfor %}
-        {% endif %}
+                  </svg>
+                </div>
+              </a>
+            {% endfor %}
+          {% endif %}
+        </div>
+        {%- if paginate.pages > 1 -%}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- endif -%}
       </div>
-
-      
     </div>
-  </div>
+  {%- endpaginate -%}
 </section>
 
 {% schema %}
 {
-  "name": "Onward Products (Auto)",
+  "name": "Product Grid",
   "settings": [
     {
       "type": "color_scheme",
@@ -85,20 +124,44 @@
       "id": "collection",
       "label": "Select collection"
     },
-   
+
     {
       "type": "range",
-      "id": "products_limit",
-      "label": "Products to show",
+      "id": "products_per_page",
+      "label": "Product per page",
       "min": 2,
       "max": 12,
       "step": 1,
       "default": 6
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ],
   "presets": [
     {
-      "name": "Onward Products (Auto)"
+      "name": "Product grid"
     }
   ]
 }

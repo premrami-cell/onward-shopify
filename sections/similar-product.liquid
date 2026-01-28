@@ -1,7 +1,21 @@
 {{ 'similar-product.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
 {% if section.settings.collection != blank %}
-  <section class="similar-product color-scheme-{{ section.settings.color_scheme }}">
+  <section class="similar-product  section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
     <div class="container">
       <div class="similar-can">
         <div class="products-title">
@@ -61,9 +75,9 @@
 
 {% schema %}
 {
-  "name": "Customers Also Like",
+  "name": "Recommendation product",
   "settings": [
-     {
+    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
@@ -88,11 +102,35 @@
       "max": 6,
       "step": 1,
       "default": 3
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ],
   "presets": [
     {
-      "name": "Customers Also Like"
+      "name": "Recommendation product"
     }
   ]
 }

@@ -9,9 +9,10 @@
         gap: var(--column-gap);
         width: 100%;
         transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        flex-wrap: wrap;
 
         .icon-box {
-            width: 100%;
+            width: calc(33% - 0.625rem);
             max-width: 24.1875rem;
             padding: 5rem 1.5rem;
             transition: all 0.3s ease;
@@ -23,7 +24,7 @@
                         var(--color-white) 100%);
                 box-shadow: 0 0.625rem 1rem 0 var(--color-box-shadow);
                 border-radius: 2.5rem;
-                transform: translateY(-8px) !important;
+                transform: translateY(-0.5rem) !important;
                 z-index: 10 !important;
             }
 
@@ -72,6 +73,7 @@
 
             .icon-box {
                 padding: 2.875rem 1.5rem;
+                width: 100%;
             }
         }
     }

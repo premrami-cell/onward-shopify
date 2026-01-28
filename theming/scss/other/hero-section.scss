@@ -1,6 +1,5 @@
 .hero-section {
     width: 100%;
-    background-color: var(--color-background);
 
     h2 {
         font-family: var(--font-primary);
@@ -8,7 +7,6 @@
         font-size: 4rem;
         line-height: var(--heading-line-height);
         text-align: center;
-        color: var(--color-primary-color);
     }
 
     h1 {
@@ -42,7 +40,6 @@
         a {
             box-shadow: 0 0.625rem 1rem 0 var(--color-primary-color);
             border: 0.0625rem solid var(--color-white);
-            background-color: var(--color-white);
             font-family: var(--font-primary);
             font-weight: var(--font-extrabold);
             font-size: 1.25rem;
@@ -50,16 +47,17 @@
             letter-spacing: 0.25rem;
             vertical-align: middle;
             padding: 1rem 2rem 1rem 2.875rem;
-            border-radius: 1.875rem;
+            border-radius: var(--buttons-radius);
             cursor: pointer;
             text-decoration: none;
-            color: var(--color-primary-color);
             transition: all 0.3s ease;
+            background-color: rgb(var(--color-button));
+            color: rgb(var(--color-button-text));
 
             &:hover {
-                background-color: var(--color-black);
-                border-color: var(--color-black);
-                color: var(--color-white);
+                background-color: var(--color-black) !important;
+                border-color: var(--color-black) !important;
+                color: var(--color-white) !important;
 
                 svg path {
                     fill: var(--color-white);
@@ -71,6 +69,8 @@
     .hero-image {
         overflow: hidden;
         margin-bottom: -20.563rem;
+        z-index: 99;
+        position: relative;
 
         .hero-img-desktop {
             margin: 0 auto;
@@ -87,19 +87,7 @@
 }
 
 /* Shared hover (outside hero scope) */
-.own-upper {
-    .shop {
-        &:hover {
-            background-color: var(--color-black);
-            border: 0.0625rem solid var(--color-black);
-            color: var(--color-white);
 
-            svg path {
-                fill: var(--color-white);
-            }
-        }
-    }
-}
 
 /* Responsive */
 @media (max-width: 48rem) {
@@ -136,7 +124,7 @@
     }
 }
 
-@media screen and (max-width: 32rem) {
+@media (max-width: 32rem) {
     .hero-section {
         .hero-image {
             margin-bottom: -13.375rem;

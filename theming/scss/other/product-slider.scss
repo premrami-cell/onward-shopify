@@ -30,7 +30,6 @@
                 font-family: var(--font-primary);
                 font-weight: var(--font-extrabold);
                 font-size: 1.125rem;
-                color: var(--color-title);
                 line-height: 125%;
                 letter-spacing: 0.25rem;
                 box-shadow: 0 0.625rem 1rem 0 var(--color-box-shadow);
@@ -41,11 +40,23 @@
                 justify-content: space-between;
                 border: none;
                 padding: 1.25rem 3.1875rem;
-                background-color: var(--color-white);
+                background-color: rgb(var(--color-button));
+                color: rgb(var(--color-button-text));
                 cursor: pointer;
                 text-decoration: none;
                 transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: var(--color-black) !important;
+                    border-color: var(--color-black) !important;
+                    color: var(--color-white) !important;
+
+                    svg path {
+                        fill: var(--color-white);
+                    }
+                }
             }
+
         }
     }
 }

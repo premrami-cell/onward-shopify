@@ -181,3 +181,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+document.querySelectorAll('.product-card').forEach(card => {
+    const hasVideo = card.dataset.hasVideo === 'true';
+    const video = card.querySelector('.hover-video');
+    const bg = card.querySelector('.product-bg');
+
+    card.addEventListener('mouseenter', () => {
+        if (hasVideo && video) {
+            video.play();
+            video.style.opacity = '1';
+        } else if (bg) {
+            bg.style.opacity = '1';
+        }
+    });
+
+    card.addEventListener('mouseleave', () => {
+        if (hasVideo && video) {
+            video.pause();
+            video.currentTime = 0;
+            video.style.opacity = '0';
+        } else if (bg) {
+            bg.style.opacity = '0';
+        }
+    });
+});
+

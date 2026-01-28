@@ -494,23 +494,35 @@
                   show_pickup_availability: true
                 -%}
 
-                {% assign accordion_blocks = section.blocks | where: 'type', 'accordion' %}
+                {%- assign accordion_blocks = section.blocks | where: 'type', 'accordion' -%}
+                {%- assign has_accordion_data = false -%}
 
-                {% if accordion_blocks.size > 0 %}
+                {%- for block in accordion_blocks -%}
+                  {%- if block.settings.content != blank -%}
+                    {%- assign has_accordion_data = true -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {% if has_accordion_data %}
                   <div class="accordion-productdetail">
                     {% for block in accordion_blocks %}
-                      <div class="accordion-item" {{ block.shopify_attributes }}>
-                        <button type="button" class="accordion-header">
-                          <span>{{ block.settings.title }}</span>
-                          <span class="icon">+</span>
-                        </button>
-                        <div class="accordion-content">
-                          {{ block.settings.content }}
+                      {% if block.settings.content != blank %}
+                        <div class="accordion-item" {{ block.shopify_attributes }}>
+                          <button type="button" class="accordion-header">
+                            <span>{{ block.settings.title }}</span>
+                            <span class="icon">+</span>
+                          </button>
+
+                          <div class="accordion-content">
+                            {{ block.settings.content }}
+                          </div>
                         </div>
-                      </div>
+                      {% endif %}
                     {% endfor %}
                   </div>
                 {% endif %}
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -838,7 +850,7 @@
     height: 100%;
     object-fit: cover;
     border: none;
-    max-height: 797px !important;
+    max-height: 49.813rem !important;
   }
 
   .thumbnail[aria-current] {
@@ -855,14 +867,14 @@
     border: none !important;
   }
 
-  #ProductSubmitButton-template--21177517867226__main {
+  .product-form__submit.button.button--full-width.button--secondary {
     display: flex;
     align-items: center;
     justify-content: space-around;
     background: var(--color-secondary-color);
     border: 0.063rem solid var(--color-white);
     border-radius: 6.25rem;
-    height: 5.563rem;
+    height: 4.688rem;
     width: 100%;
     max-width: 36.813rem;
     font-family: var(--font-primary);
@@ -875,10 +887,32 @@
     text-transform: uppercase;
   }
 
-  #ProductSubmitButton-template--21177517867226__main:hover {
+  .product-form__submit.button.button--full-width.button--secondary:hover {
     color: var(--color-secondary-color);
     background-color: var(--color-white);
     border: 0.063rem solid var(--color-secondary-color);
+  }
+
+  .shopify-payment-button__button.shopify-payment-button__button--unbranded {
+    color: var(--color-secondary-color);
+    background-color: var(--color-white);
+    border: 0.063rem solid var(--color-secondary-color);
+    height: 4.688rem;
+    width: 100%;
+    max-width: 36.813rem;
+    font-family: var(--font-primary);
+    font-weight: var(--font-black);
+    font-size: 1.25rem;
+    line-height: 125%;
+    letter-spacing: 0.25rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+  }
+
+  .shopify-payment-button__button.shopify-payment-button__button--unbranded:hover {
+    background: var(--color-secondary-color);
+    color: var(--color-white);
   }
 
   .product-form__input--pill.is-flavor input[type='radio']:checked + label {
@@ -1098,27 +1132,6 @@
           ],
           "default": "button",
           "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
-        },
-        {
-          "id": "swatch_shape",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.label",
-          "type": "select",
-          "info": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.info",
-          "options": [
-            {
-              "value": "circle",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__1.label"
-            },
-            {
-              "value": "square",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__2.label"
-            },
-            {
-              "value": "none",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
-            }
-          ],
-          "default": "circle"
         }
       ]
     },
