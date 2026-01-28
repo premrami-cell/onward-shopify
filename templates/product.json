@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "icon_CkP4fk": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/product-detail-icon_4c98b8ff-8a37-4c0f-b179-9e5b50451562.png"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "sub_heading_JhrgVW": {
+          "type": "sub_heading",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.sub_heading.value }}</p>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "accordion_wN9fmC": {
+          "type": "accordion",
+          "settings": {
+            "title": "INGREDIENTS",
+            "content": "{{ product.metafields.custom.ingredients | metafield_tag }}"
+          }
+        },
+        "accordion_yaC3Wp": {
+          "type": "accordion",
+          "settings": {
+            "title": "NUTRITION FACTS",
+            "content": "{{ product.metafields.custom.nutrition_facts | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "icon_CkP4fk",
+        "title",
+        "sub_heading_JhrgVW",
+        "description",
+        "variant_picker",
+        "buy_buttons",
+        "accordion_wN9fmC",
+        "accordion_yaC3Wp"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "columns",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "icon_box_fCLwWx": {
+      "type": "icon-box",
+      "blocks": {
+        "icon_box_MqGNkJ": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "shopify://shop_images/icon-box1.svg",
+            "title": "A perfect balance",
+            "description": "CBD & THC - where chill meets cheer, perfectly."
+          }
+        },
+        "icon_box_VDf4GK": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "shopify://shop_images/icon-box2.svg",
+            "title": "Less calories, more fun",
+            "description": "Because good times shouldn’t weigh you down."
+          }
+        },
+        "icon_box_BcUW6b": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "shopify://shop_images/icon-box3.svg",
+            "title": "Made in USA",
+            "description": "Proudly crafted where quality begins - Right here at home."
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_MqGNkJ",
+        "icon_box_VDf4GK",
+        "icon_box_BcUW6b"
+      ],
+      "name": "Icon Boxes",
+      "settings": {
+        "color_scheme": ""
+      }
+    },
+    "similar_product_VahG6q": {
+      "type": "similar-product",
+      "name": "Customers Also Like",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Customers Also Like",
+        "collection": "frontpage",
+        "products_limit": 3
+      }
+    }
+  },
+  "order": [
+    "main",
+    "icon_box_fCLwWx",
+    "similar_product_VahG6q"
+  ]
+}

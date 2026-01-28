@@ -1,0 +1,88 @@
+{{ 'bundle-save.css' | asset_url | stylesheet_tag }}
+
+<section class="bundle color-scheme-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="bundle-content">
+  <div class="bundle-left">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+  </div>
+
+  <div class="bundle-right">
+    {% if section.settings.collection != blank %}
+      {% for product in section.settings.collection.products limit: section.settings.products_limit %}
+        <a href="{{ product.url }}" class="bundle-card">
+          <div class="bundle-image">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 600 | image_tag: alt: product.title, loading: 'lazy' }}
+            {% endif %}
+          </div>
+
+          <div class="bundle-title">
+            {{ product.title }}
+            <svg
+              width="40"
+              height="15"
+              viewBox="0 0 40 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M39.7071 8.07112C40.0976 7.68059 40.0976 7.04743 39.7071 6.6569L33.3431 0.292943C32.9526 -0.0975814 32.3195 -0.0975814 31.9289 0.292943C31.5384 0.683467 31.5384 1.31663 31.9289 1.70716L37.5858 7.36401L31.9289 13.0209C31.5384 13.4114 31.5384 14.0446 31.9289 14.4351C32.3195 14.8256 32.9526 14.8256 33.3431 14.4351L39.7071 8.07112ZM0 7.36401L8.74228e-08 8.36401L39 8.36401L39 7.36401L39 6.36401L-8.74228e-08 6.36401L0 7.36401Z"
+                fill="#141429" />
+            </svg>
+          </div>
+        </a>
+      {% endfor %}
+    {% else %}
+      <p>Please select a collection</p>
+    {% endif %}
+  </div>
+</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bundle & Save",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bundle & Save"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Get the best of what the world has to offer, bundle your Onward favorites!"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Number of products",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle & Save"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,81 @@
+{{ 'icon-box.css' | asset_url | stylesheet_tag }}
+
+<section class="icon-boxs color-scheme-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="icon-box-div">
+      {% for block in section.blocks %}
+        <div class="icon-box" {{ block.shopify_attributes }}>
+          <div class="icon-box-details">
+            {% if block.settings.icon_svg != blank %}
+              <div class="icon">
+                <img
+                  src="{{ block.settings.icon_svg | image_url: width: 64 }}"
+                  alt="{{ block.settings.title | escape }}"
+                  width="32"
+                  height="39"
+                  loading="lazy"
+                >
+              </div>
+            {% endif %}
+
+            <div class="icon-details">
+              {% if block.settings.title != blank %}
+                <h4>{{ block.settings.title }}</h4>
+              {% endif %}
+
+              {% if block.settings.description != blank %}
+                <p>{{ block.settings.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Icon Boxes",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_box",
+      "name": "Icon Box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_svg",
+          "label": "Upload SVG Icon",
+          "info": "Upload SVG only for best quality"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "A perfect balance"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "CBD & THC - where chill meets cheer, perfectly."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Boxes",
+      "blocks": [{ "type": "icon_box" }, { "type": "icon_box" }, { "type": "icon_box" }]
+    }
+  ]
+}
+{% endschema %}

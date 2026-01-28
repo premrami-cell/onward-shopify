@@ -1,0 +1,193 @@
+.hero-section {
+    width: 100%;
+    background-color: var(--color-background);
+
+    h2 {
+        font-family: var(--font-primary);
+        font-weight: var(--font-light);
+        font-size: 4rem;
+        line-height: var(--heading-line-height);
+        text-align: center;
+        color: var(--color-primary-color);
+    }
+
+    h1 {
+        font-family: var(--font-primary);
+        font-weight: var(--font-black);
+        font-size: var(--h1-font-size);
+        line-height: var(--heading-line-height);
+        text-align: center;
+        background-image: linear-gradient(180deg,
+                var(--color-primary-color) 15.36%,
+                #8685C0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin-top: -1.25rem;
+    }
+
+    .hero-title {
+        padding-top: 2.5rem;
+    }
+
+    .hero-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        position: relative;
+        padding-bottom: 2.188rem;
+
+        a {
+            box-shadow: 0 0.625rem 1rem 0 var(--color-primary-color);
+            border: 0.0625rem solid var(--color-white);
+            background-color: var(--color-white);
+            font-family: var(--font-primary);
+            font-weight: var(--font-extrabold);
+            font-size: 1.25rem;
+            line-height: 125%;
+            letter-spacing: 0.25rem;
+            vertical-align: middle;
+            padding: 1rem 2rem 1rem 2.875rem;
+            border-radius: 1.875rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--color-primary-color);
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: var(--color-black);
+                border-color: var(--color-black);
+                color: var(--color-white);
+
+                svg path {
+                    fill: var(--color-white);
+                }
+            }
+        }
+    }
+
+    .hero-image {
+        overflow: hidden;
+        margin-bottom: -20.563rem;
+
+        .hero-img-desktop {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 47.625rem;
+            text-align: center;
+            display: flex;
+        }
+
+        .hero-img-mobile {
+            display: none;
+        }
+    }
+}
+
+/* Shared hover (outside hero scope) */
+.own-upper {
+    .shop {
+        &:hover {
+            background-color: var(--color-black);
+            border: 0.0625rem solid var(--color-black);
+            color: var(--color-white);
+
+            svg path {
+                fill: var(--color-white);
+            }
+        }
+    }
+}
+
+/* Responsive */
+@media (max-width: 48rem) {
+    .hero-section {
+        h2 {
+            font-size: 2rem;
+        }
+
+        .container {
+            padding: 0;
+        }
+
+        h1 {
+            font-size: var(--h2-font-size);
+            margin-top: 0;
+            line-height: 100%;
+        }
+
+        .hero-title {
+            padding-top: 5rem;
+        }
+
+        .hero-button {
+            a {
+                letter-spacing: normal;
+            }
+        }
+
+        .hero-image {
+            .hero-img-desktop {
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 32rem) {
+    .hero-section {
+        .hero-image {
+            margin-bottom: -13.375rem;
+        }
+    }
+}
+
+@media (max-width: 26.625rem) {
+    .hero-section {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-image {
+            margin-bottom: -13.875rem;
+
+            .hero-img-desktop {
+                height: 24.313rem;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .own-upper {
+        h3 {
+            text-align: center;
+            font-size: 2.875rem;
+            line-height: 100%;
+        }
+    }
+
+    .hero-right {
+        img {
+            display: block;
+            width: 28.625rem;
+        }
+    }
+}
+
+@media (max-width: 23.5rem) {
+    .hero-section {
+        h1 {
+            margin-bottom: 1.875rem;
+        }
+
+        .hero-image {
+            margin-bottom: -13rem !important;
+        }
+
+        .hero-button {
+            padding-bottom: 0.875rem;
+        }
+    }
+}

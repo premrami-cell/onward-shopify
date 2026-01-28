@@ -1,0 +1,63 @@
+{{ 'shop-onbanner.css' | asset_url | stylesheet_tag }}
+
+<section class="shop-onhero  color-scheme-{{ section.settings.color_scheme }}">
+  <div
+    class="hero-section"
+    {% if section.settings.bg_image != blank %}
+      style="background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});"
+    {% endif %}
+  >
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-left">
+          <h2>{{ section.settings.heading }}</h2>
+        </div>
+
+        <div class="hero-right">
+          {% if section.settings.image != blank %}
+            {{
+              section.settings.image
+              | image_url: width: 594
+              | image_tag: loading: 'lazy', alt: section.settings.image.alt
+            }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop On Hero",
+  "settings": [
+       {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "All of the Happy Hour, None of the Hangover"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop On Hero"
+    }
+  ]
+}
+{% endschema %}

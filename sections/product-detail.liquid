@@ -1,0 +1,217 @@
+{{ 'product-detail.css' | asset_url | stylesheet_tag }}
+
+{% if product != blank or request.design_mode %}
+  <section class="product-detail color-scheme-{{ section.settings.color_scheme }}">
+    <div class="container">
+      <div class="product-content">
+        <!-- LEFT : PRODUCT IMAGES -->
+        <div class="product-left">
+          <div class="product-img-wrapper">
+            <!-- MAIN SLIDER -->
+            <div class="swiper product-images">
+              <div class="swiper-wrapper">
+                {% for image in product.images %}
+                  <div class="swiper-slide">
+                    {{ image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- THUMB SLIDER -->
+            <div class="swiper product-thumb">
+              <div class="swiper-wrapper">
+                {% for image in product.images %}
+                  <div class="swiper-slide">
+                    {{ image | image_url: width: 200 | image_tag: loading: 'lazy', alt: product.title }}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            {% if section.blocks.size > 0 %}
+              
+                {% for block in section.blocks %}
+                  {% if block.type == 'icon' and block.settings.icon_image != blank %}
+                    <div class="icon">
+                      {{
+                        block.settings.icon_image
+                        | image_url: width: 500
+                        | image_tag: loading: 'lazy', alt: block.settings.icon_image.alt
+                      }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- RIGHT : PRODUCT INFO -->
+        <div class="product-right">
+          <h3>{{ product.title }}</h3>
+
+          <nav class="product-location">
+            <a href="{{ routes.all_products_collection_url }}">PRODUCTS</a>
+            <span class="separator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="15px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#1f1f1f"
+              >
+                <path d="M522-480 333-669l51-51 240 240-240 240-51-51 189-189Z"/>
+              </svg>
+            </span>
+            <span class="current">{{ product.title }}</span>
+          </nav>
+
+          {% if product.metafields.custom.sub_heading %}
+            <h4>{{ product.metafields.custom.sub_heading }}</h4>
+          {% endif %}
+
+          <p>{{ product.description }}</p>
+
+          <!-- FLAVOR OPTIONS -->
+          {% if product.options_by_name.Flavor %}
+            <div class="product-flavor">
+              <p>FLAVOR</p>
+
+              <div class="flavor-option">
+                {% assign seen_flavors = '' %}
+                {% for variant in product.variants %}
+                  {% unless seen_flavors contains variant.option1 %}
+                    {% assign seen_flavors = seen_flavors | append: variant.option1 | append: ',' %}
+
+                    <a
+                      href="#"
+                      class="flavor-img"
+                      data-variant-id="{{ variant.id }}"
+                      data-flavor="{{ variant.option1 }}"
+                      aria-label="{{ variant.option1 }}"
+                    >
+                      {% if variant.image %}
+                        {{ variant.image | image_url: width: 120 | image_tag: alt: variant.option1, loading: 'lazy' }}
+                      {% endif %}
+                    </a>
+                  {% endunless %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- QUANTITY OPTIONS -->
+          {% if product.options contains 'Quantity' %}
+            <div class="product-quantity">
+              <p>QUANTITY (CANS)</p>
+              <div class="quantity-option">
+                {% for value in product.options_by_name.Quantity.values %}
+                  <button type="button" class="quantity-btn" data-value="{{ value }}">
+                    {{ value }}
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- PURCHASE OPTIONS -->
+          <div class="purchase-options">
+            <label class="purchase-option active">
+              <input type="radio" name="purchase" checked>
+              <span class="radio"></span>
+              <span class="label-text">SINGLE PURCHASE</span>
+              <span class="price">{{ product.price | money }}</span>
+            </label>
+
+            {% if product.metafields.custom.subscription_price %}
+              <label class="purchase-option">
+                <input type="radio" name="purchase">
+                <span class="radio"></span>
+                <span class="label-text">SUBSCRIBE & SAVE</span>
+                <span class="price">
+                  {{ product.metafields.custom.subscription_price | money }}
+                </span>
+              </label>
+            {% endif %}
+          </div>
+
+          <!-- ADD TO CART -->
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <button type="submit" class="addtocart">ADD TO CART</button>
+          </form>
+
+          <!-- ACCORDION -->
+          {% assign accordion_blocks = section.blocks | where: 'type', 'accordion' %}
+
+          {% if accordion_blocks.size > 0 %}
+            <div class="accordion-productdetail">
+              {% for block in accordion_blocks %}
+                <div class="accordion-item">
+                  <button class="accordion-header">
+                    <span>{{ block.settings.title }}</span>
+                    <span class="icon">+</span>
+                  </button>
+                  <div class="accordion-content">
+                    {{ block.settings.content }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Detail",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Accordion Title",
+          "default": "Accordion Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Accordion Content"
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Product Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Detail"
+    }
+  ]
+}
+{% endschema %}
