@@ -72,7 +72,7 @@
         "collection": "frontpage",
         "products_limit": 6,
         "shop_all_text": "SHOP ALL",
-        "show_view_all": false,
+        "show_view_all": true,
         "color_scheme": "scheme-1",
         "shop_text": "Shop All",
         "shop_link": "shopify://collections/all",
