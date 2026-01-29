@@ -13,10 +13,12 @@
       "type": "shop-onbanner",
       "name": "Shop On Hero",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-3",
         "heading": "All of the Happy Hour, None of the Hangover",
         "bg_image": "shopify://shop_images/shop-hero.png",
-        "image": "shopify://shop_images/PRODUCT_POP.png"
+        "image": "shopify://shop_images/PRODUCT_POP.png",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "start_journey_rk6849": {
@@ -28,7 +30,9 @@
         "description": "Begin your experience with the ultimate sampler.",
         "collection": "bundle",
         "shop_all_text": "SHOP ALL",
-        "shop_all_link": "shopify://collections/bundle"
+        "shop_all_link": "shopify://collections/bundle",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "onward_product_BapFdy": {
@@ -39,9 +43,9 @@
         "heading": "Onward",
         "description": "Your journey Onward starts here. A perfect balance, where chill meets cheer, perfectly.",
         "collection": "",
-        "shop_all_text": "SHOP ALL",
-        "shop_all_link": "shopify://collections/frontpage",
-        "products_limit": 6
+        "products_per_page": 6,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "bundle_save_qfGhk3": {
@@ -52,7 +56,9 @@
         "heading": "Bundle & Save",
         "subheading": "Get the best of what the world has to offer, bundle your Onward favorites!",
         "collection": "bundle",
-        "products_limit": 3
+        "products_limit": 3,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
