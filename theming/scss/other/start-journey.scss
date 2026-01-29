@@ -161,9 +161,16 @@
             }
         }
 
-        .journey-product .swiper-slide {
-            width: 100% !important;
-            margin-bottom: 1.25rem;
+        .journey-product {
+
+            .swiper-wrapper {
+                gap: 4.313rem;
+
+                .swiper-slide {
+                    width: 100% !important;
+                    margin-bottom: 1.25rem;
+                }
+            }
         }
 
         .shop {

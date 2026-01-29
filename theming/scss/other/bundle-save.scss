@@ -71,6 +71,13 @@
                     position: relative;
                     z-index: 2;
                     object-fit: contain;
+
+                    &:hover {
+                        background: radial-gradient(circle at center,
+                                #ffffff 25%,
+                                #ffffff 55%,
+                                #f9f9f9 100%);
+                    }
                 }
             }
 
@@ -94,7 +101,6 @@
 
                 svg path {
                     fill: rgb(var(--color-button-text));
-
                 }
 
                 &:hover {

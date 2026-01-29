@@ -798,7 +798,6 @@ h3 {
 
 .flavor-image-option {
     width: 5.813rem;
-    height: 5.813rem;
     border: none !important;
     overflow: hidden;
     cursor: pointer;
@@ -823,10 +822,10 @@ h3 {
     font-weight: 600;
 }
 
-.product-media-container .product__modal-opener {
-    width: 36.813rem !important;
+// .product-media-container .product__modal-opener {
+//     width: 36.813rem !important;
 
-}
+// }
 
 .media>*:not(.zoom):not(.deferred-media__poster-button),
 .media model-viewer {
@@ -890,7 +889,7 @@ h3 {
 
 .product-form__input--pill input[type=radio]+label {
     border: .125rem solid #f2f2f2 !important;
-    border-radius: 1.875rem !important;
+    border-radius: 1.125rem !important;
     background: transparent;
     padding: .5rem 1.063rem;
     font-family: var(--font-primary);
@@ -899,6 +898,7 @@ h3 {
     cursor: pointer;
     text-align: center;
     width: max-content;
+    padding: 0.625rem 1.063rem !important;
 }
 
 .product .product__media-wrapper {
@@ -952,10 +952,7 @@ h3 {
     background: transparent !important
 }
 
-.product__media-icon,
-.thumbnail__badge {
-    display: none;
-}
+
 
 .product-form__input--pill.is-flavor input[type=radio]+label {
     border: none !important;
@@ -999,6 +996,183 @@ h3 {
     flex-wrap: wrap;
     max-width: 36.813rem;
     width: 100%;
+}
+
+
+.product {
+    margin: auto;
+}
+
+.slider-button {
+    display: none !important;
+}
+
+.product-form__input--pill input[type='radio']+label {
+    border: 0.125rem solid #f2f2f2 !important;
+    border-radius: 1.875rem !important;
+    background: transparent;
+    padding: 0.5rem 1.063rem;
+    font-family: var(--font-primary);
+    font-weight: var(--font-extrabold);
+    font-size: 1rem !important;
+    cursor: pointer;
+    text-align: center;
+    width: max-content;
+}
+
+.product .product__media-wrapper {
+    max-width: 34.25rem !important;
+    width: 100% !important;
+}
+
+.product .product__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.563rem;
+    max-width: 36.813rem !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.product__title h3 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-black);
+    font-size: 3.125rem;
+    line-height: 125%;
+    color: var(--color-secondary-color);
+    letter-spacing: normal;
+}
+
+.product__description {
+    margin: 0 !important;
+}
+
+.product__description p {
+    font-family: var(--font-secondary);
+    font-weight: var(--font-medium);
+    font-size: 1.25rem;
+    line-height: 182%;
+    letter-spacing: normal;
+    color: var(--color-primary-color);
+}
+
+.product-sub-heading p {
+    font-family: var(--font-primary);
+    font-weight: var(--font-bold);
+    font-size: 1.313rem;
+    line-height: 140%;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    color: var(--color-primary-color);
+}
+
+.product-media-container.constrain-height.media-fit-contain {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    max-height: 49.813rem !important;
+}
+
+.thumbnail[aria-current] {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: 9.813rem !important;
+    height: 9.125rem !important;
+    object-fit: contain;
+}
+
+.thumbnail {
+    border: none !important;
+}
+
+.product__media-icon {
+    display: none !important;
+}
+
+
+.product-form__submit.button.button--full-width.button--secondary {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: var(--color-secondary-color);
+    border: 0.063rem solid var(--color-white);
+    border-radius: 6.25rem;
+    height: 4.688rem;
+    width: 100%;
+    max-width: 36.813rem;
+    font-family: var(--font-primary);
+    font-weight: var(--font-black);
+    font-size: 1.25rem;
+    line-height: 125%;
+    letter-spacing: 0.25rem;
+    vertical-align: middle;
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+.product-form__submit.button.button--full-width.button--secondary:hover {
+    color: var(--color-secondary-color);
+    background-color: var(--color-white);
+    border: 0.063rem solid var(--color-secondary-color);
+}
+
+.shopify-payment-button__button.shopify-payment-button__button--unbranded {
+    color: var(--color-secondary-color);
+    background-color: var(--color-white);
+    border: 0.063rem solid var(--color-secondary-color);
+    height: 4.688rem;
+    width: 100%;
+    max-width: 36.813rem;
+    font-family: var(--font-primary);
+    font-weight: var(--font-black);
+    font-size: 1.25rem;
+    line-height: 125%;
+    letter-spacing: 0.25rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+}
+
+.shopify-payment-button__button.shopify-payment-button__button--unbranded:hover {
+    background: var(--color-secondary-color);
+    color: var(--color-white);
+}
+
+// .product-form__input--pill.is-flavor input[type='radio']:checked+label {
+//     border: none !important;
+//     background: transparent !important;
+// }
+
+.form__label {
+    color: #a5a5a5 !important;
+    font-family: var(--font-secondary);
+    font-weight: var(--font-medium);
+    font-size: 1rem;
+    line-height: 140%;
+    letter-spacing: normal;
+    text-transform: uppercase;
+}
+
+.product__media-icon,
+.thumbnail__badge {
+    display: none;
+}
+
+.product-form__input--pill.is-flavor input[type='radio']+label {
+    border: none !important;
+    padding: 0 !important;
+}
+
+.product-form__input--pill input[type='radio']:checked+label {
+    border: 0.125rem solid var(--color-secondary-color) !important;
+    background: var(--color-secondary-color) !important;
+    color: var(--color-white) !important;
 }
 
 
@@ -1125,6 +1299,22 @@ h3 {
 }
 
 @media (max-width: 48rem) {
+
+    .swiper {
+        overflow: visible !important;
+    }
+
+    .swiper-wrapper {
+        display: flex !important;
+        flex-wrap: wrap;
+        transform: none !important;
+        justify-content: center;
+    }
+
+    .swiper-slide {
+        width: 100% !important;
+        margin: 0 !important;
+    }
 
     .focus-none {
         border-radius: 0 0 1.875rem 1.875rem;
