@@ -20,8 +20,8 @@
         "mobile_image": "shopify://shop_images/hero-mobile.png",
         "button_text": "SHOP NOW",
         "button_link": "shopify://collections/all",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "icon_box_qrNpLP": {
