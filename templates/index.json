@@ -73,7 +73,7 @@
         "products_limit": 6,
         "shop_all_text": "SHOP ALL",
         "show_view_all": false,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "shop_text": "Shop All",
         "shop_link": "shopify://collections/all",
         "padding_top": 36,
