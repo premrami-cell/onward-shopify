@@ -72,6 +72,11 @@
             fill: rgb(var(--color-button-text));
 
         }
+
+        &:hover {
+            background: var(--color-white);
+            box-shadow: 0 0.625rem 1rem 0 var(--color-box-shadow);
+        }
     }
 }
 
