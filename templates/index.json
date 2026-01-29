@@ -87,7 +87,7 @@
           "type": "box",
           "settings": {
             "label": "BUILD YOUR OWN",
-            "heading": "Your favorites, your way",
+            "heading": "Your favorites,<br> your way",
             "button_text": "BUILD A BUNDLE",
             "button_link": "shopify://pages/build-your-bundle"
           }
