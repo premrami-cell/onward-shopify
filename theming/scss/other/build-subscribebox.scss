@@ -75,6 +75,11 @@
                         text-decoration: none;
                         transition: all 0.3s ease;
 
+                        svg path {
+                            fill: rgb(var(--color-button-text));
+
+                        }
+
                         &:hover {
                             background-color: var(--color-white);
                             color: var(--color-black);

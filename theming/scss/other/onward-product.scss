@@ -1,7 +1,6 @@
 .onwards-product {
     width: 100%;
     padding: 4.563rem 0 5.5rem;
-    background-color: var(--color-white);
     border-radius: 5rem;
     z-index: 1;
     position: relative;
@@ -9,6 +8,14 @@
     .onward-can {
         display: flex;
         flex-direction: column;
+
+        .product-card {
+            text-align: center;
+            width: 100%;
+            max-width: 24.1875rem;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
 
         .products-title {
             display: flex;
@@ -21,7 +28,6 @@
                 font-size: var(--h2-font-size);
                 line-height: var(--heading-line-height);
                 letter-spacing: normal;
-                color: var(--color-primary-color);
                 margin-bottom: 2.5rem;
             }
 
@@ -56,11 +62,16 @@
         align-items: center;
         justify-content: center;
         gap: var(--column-gap);
-        color: var(--color-title);
+        color: rgb(var(--color-button-text));
         padding: 1.5rem 2.1875rem;
         border-radius: 1.875rem;
         text-align: left;
         transition: all 0.3s ease;
+
+        svg path {
+            fill: rgb(var(--color-button-text));
+
+        }
     }
 }
 

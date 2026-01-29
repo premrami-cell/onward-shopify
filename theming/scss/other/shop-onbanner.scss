@@ -2,7 +2,7 @@
     background-color: var(--color-background);
 
     .hero-section {
-        background-image: url(../assets/shop-hero.png);
+
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
@@ -25,7 +25,6 @@
                     letter-spacing: normal;
                     width: 100%;
                     max-width: 37.125rem;
-                    color: var(--color-white);
                     text-align: left;
                 }
             }

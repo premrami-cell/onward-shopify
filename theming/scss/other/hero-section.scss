@@ -54,6 +54,11 @@
             background-color: rgb(var(--color-button));
             color: rgb(var(--color-button-text));
 
+            svg path {
+                fill: rgb(var(--color-button-text));
+
+            }
+
             &:hover {
                 background-color: var(--color-black) !important;
                 border-color: var(--color-black) !important;
@@ -94,6 +99,7 @@
     .hero-section {
         h2 {
             font-size: 2rem;
+            margin-bottom: 0.625rem;
         }
 
         .container {
@@ -106,9 +112,7 @@
             line-height: 100%;
         }
 
-        .hero-title {
-            padding-top: 5rem;
-        }
+
 
         .hero-button {
             a {
@@ -148,13 +152,6 @@
         }
     }
 
-    .own-upper {
-        h3 {
-            text-align: center;
-            font-size: 2.875rem;
-            line-height: 100%;
-        }
-    }
 
     .hero-right {
         img {
