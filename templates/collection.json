@@ -25,14 +25,14 @@
       "type": "start-journey",
       "name": "Start Journey Slider",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "heading": "Start your Journey",
         "description": "Begin your experience with the ultimate sampler, try our 3 mg, 5mg or 10mg flavor packs.",
         "collection": "bundle",
         "shop_all_text": "SHOP ALL",
         "shop_all_link": "shopify://collections/bundle",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "onward_product_BapFdy": {
