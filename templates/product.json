@@ -134,7 +134,7 @@
         "heading": "Customers Also Like",
         "collection": "frontpage",
         "products_limit": 3,
-        "padding_top": 36,
+        "padding_top": 56,
         "padding_bottom": 100
       }
     }
