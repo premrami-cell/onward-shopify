@@ -1,0 +1,103 @@
+{{ 'shop-onbanner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="shop-onhero section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div
+    class="hero-section"
+    {% if section.settings.bg_image != blank %}
+      style="background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});"
+    {% endif %}
+  >
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-left">
+          <h2>{{ section.settings.heading }}</h2>
+        </div>
+
+        <div class="hero-right">
+          {% if collection and collection.image != blank %}
+            {{ collection.image | image_url: width: 594 | image_tag: loading: 'lazy', alt: collection.title }}
+          {% elsif section.settings.image != blank %}
+            {{
+              section.settings.image
+              | image_url: width: 594
+              | image_tag: loading: 'lazy', alt: section.settings.image.alt
+            }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Banner",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "All of the Happy Hour, None of the Hangover"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right image (fallback)"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Banner"
+    }
+  ]
+}
+{% endschema %}

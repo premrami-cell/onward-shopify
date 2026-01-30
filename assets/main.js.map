@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","sources":["../theming/js/main.js"],"sourcesContent":["// Main JS file\r\n// This entry exists in `snippets/vite-tag.liquid`. Keep a tiny side-effect so it doesn't emit as an empty chunk.\r\nif (typeof window !== 'undefined') {\r\n    window.__theme_main_loaded__ = true;\r\n}\r\n\r\n"],"names":[],"mappings":"AAEI,OAAO,OAAW,MAClB,OAAO,sBAAwB"}

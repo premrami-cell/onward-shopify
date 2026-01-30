@@ -1,0 +1,124 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_section_RGAk6y": {
+      "type": "hero-section",
+      "name": "Hero section",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "subheading": "ZERO-PROOF",
+        "heading": "THC COCKTAILS",
+        "desktop_image": "shopify://shop_images/HERO.png",
+        "mobile_image": "shopify://shop_images/hero-mobile.png",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/all",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "icon_box_qrNpLP": {
+      "type": "icon-box",
+      "blocks": {
+        "icon_box_T6t34r": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "shopify://shop_images/icon-box1.svg",
+            "title": "A perfect balance",
+            "description": "CBD & THC - where chill meets cheer, perfectly."
+          }
+        },
+        "icon_box_EAXtXN": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "shopify://shop_images/icon-box2.svg",
+            "title": "Less calories, more fun",
+            "description": "Because good times shouldn’t weigh you down."
+          }
+        },
+        "icon_box_3qXEgE": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "shopify://shop_images/icon-box3.svg",
+            "title": "Made in USA",
+            "description": "Proudly crafted where quality begins - Right here at home."
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_T6t34r",
+        "icon_box_EAXtXN",
+        "icon_box_3qXEgE"
+      ],
+      "name": "Icon Boxes (SVG Upload)",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_slider_PV4BAM": {
+      "type": "product-slider",
+      "name": "Own Path Product Slider",
+      "settings": {
+        "heading": "Take your Own Path",
+        "collection": "frontpage",
+        "products_limit": 6,
+        "shop_all_text": "SHOP ALL",
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "shop_text": "Shop All",
+        "shop_link": "shopify://collections/all",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "build_subscribebox_fqJNGB": {
+      "type": "build-subscribebox",
+      "blocks": {
+        "box_kDFX3t": {
+          "type": "box",
+          "settings": {
+            "label": "BUILD YOUR OWN",
+            "heading": "Your favorites, your way",
+            "button_text": "BUILD A BUNDLE",
+            "button_link": "shopify://pages/build-your-bundle"
+          }
+        },
+        "box_QPzxmA": {
+          "type": "box",
+          "settings": {
+            "label": "SUBSCRIBE & SAVE",
+            "heading": "Best times delivered to your door",
+            "button_text": "SUBSCRIBE",
+            "button_link": "shopify://pages/subscribe",
+            "bg_image": "shopify://shop_images/subscribe-bg.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "box_kDFX3t",
+        "box_QPzxmA"
+      ],
+      "name": "Subscribe / Bundle Boxes",
+      "settings": {
+        "color_scheme": "scheme-1353b20c-f48d-46f2-90f0-7b6f5aa939d3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "hero_section_RGAk6y",
+    "icon_box_qrNpLP",
+    "product_slider_PV4BAM",
+    "build_subscribebox_fqJNGB"
+  ]
+}

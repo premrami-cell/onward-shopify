@@ -1,0 +1,137 @@
+{{ 'build-subscribebox.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="subscribe-boxs section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="subscribe-box">
+      {% for block in section.blocks %}
+        <div
+          class="subscribe-card"
+          {% if block.settings.bg_image != blank %}
+            style="background-image: url({{ block.settings.bg_image | image_url }});"
+          {% endif %}
+        >
+          <div class="subscribe-card-details">
+            <div class="subscribe-card-upper">
+              <p>{{ block.settings.label }}</p>
+              <h5>{{ block.settings.heading }}</h5>
+            </div>
+
+            <div class="subscribe-card-bottom">
+              {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                <a href="{{ block.settings.button_link }}">
+                  {{ block.settings.button_text }}
+                  <svg
+                    width="34"
+                    height="15"
+                    viewBox="0 0 34 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                        d="M33.7071 8.07112C34.0976 7.68059 34.0976 7.04743 33.7071 6.6569L27.3431 0.292943C26.9526 -0.0975809 26.3195 -0.0975808 25.9289 0.292944C25.5384 0.683468 25.5384 1.31663 25.9289 1.70716L31.5858 7.36401L25.9289 13.0209C25.5384 13.4114 25.5384 14.0446 25.9289 14.4351C26.3195 14.8256 26.9526 14.8256 27.3431 14.4351L33.7071 8.07112ZM0 7.36401L8.74228e-08 8.36401L33 8.36401L33 7.36401L33 6.36401L-8.74228e-08 6.36401L0 7.36401Z"
+                        fill="white" />
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Subscribe / Bundle Boxes",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Box",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "sub_heading",
+          "default": "BUILD YOUR OWN"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Your favorites, your way"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "BUILD A BUNDLE"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background Image (optional)"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscribe / Bundle Boxes",
+      "blocks": [{ "type": "box" }, { "type": "box" }]
+    }
+  ]
+}
+{% endschema %}

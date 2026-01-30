@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shop_onbanner_yHQX6d": {
+      "type": "shop-onbanner",
+      "name": "Shop On Hero",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "heading": "All of the Happy Hour, None of the Hangover",
+        "bg_image": "shopify://shop_images/shop-hero.png",
+        "image": "shopify://shop_images/PRODUCT_POP.png",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "start_journey_rk6849": {
+      "type": "start-journey",
+      "name": "Start Journey Slider",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Start your Journey",
+        "description": "Begin your experience with the ultimate sampler, try our 3 mg, 5mg or 10mg flavor packs.",
+        "collection": "bundle",
+        "shop_all_text": "SHOP ALL",
+        "shop_all_link": "shopify://collections/bundle",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "onward_product_BapFdy": {
+      "type": "onward-product",
+      "name": "Onward Products (Auto)",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Onward",
+        "description": "Your journey Onward starts here. A perfect balance, where chill meets cheer, perfectly.",
+        "collection": "",
+        "products_per_page": 12,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "bundle_save_qfGhk3": {
+      "type": "bundle-save",
+      "name": "Bundle & Save",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Bundle & Save",
+        "subheading": "Get the best of what the world has to offer, bundle your Onward favorites!",
+        "collection": "bundle",
+        "products_limit": 3,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "shop_onbanner_yHQX6d",
+    "start_journey_rk6849",
+    "onward_product_BapFdy",
+    "bundle_save_qfGhk3"
+  ]
+}

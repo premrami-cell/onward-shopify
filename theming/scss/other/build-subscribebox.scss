@@ -1,0 +1,125 @@
+.subscribe-boxs {
+    width: 100%;
+    padding-top: 6.25rem;
+    position: relative;
+    margin-bottom: -11.5rem;
+    z-index: 1;
+
+    .subscribe-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--column-gap);
+        flex-wrap: wrap;
+
+        .subscribe-card {
+            max-width: 36.875rem;
+            width: 100%;
+            padding: 8.875rem 3.563rem;
+            background: linear-gradient(180deg,
+                    #8685C0 1.33%,
+                    var(--color-primary-color) 121.17%);
+            border-radius: 2.5rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            .subscribe-card-details {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 5.25rem;
+
+                .subscribe-card-upper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                        font-family: var(--font-primary);
+                        font-weight: var(--font-light);
+                        font-size: 1.25rem;
+                        line-height: 140%;
+                        letter-spacing: 0.76rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    h5 {
+                        font-family: var(--font-primary);
+                        font-weight: var(--font-extrabold);
+                        font-size: 3rem;
+                        line-height: var(--heading-line-height);
+                        text-align: center;
+                    }
+                }
+
+                .subscribe-card-bottom {
+                    a {
+                        box-shadow: 0 0.3125rem 0.75rem #14142940;
+                        border: 0.0625rem solid var(--color-white);
+                        border-radius: 1.875rem;
+                        font-family: var(--font-primary);
+                        font-weight: var(--font-extrabold);
+                        font-size: 1.125rem;
+                        line-height: 125%;
+                        letter-spacing: 0.25rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 1.0625rem;
+                        padding: 1.4375rem 1.8125rem 1.4375rem 2.1875rem;
+                        color: rgb(var(--color-button-text));
+                        width: 100%;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+
+                        svg path {
+                            fill: rgb(var(--color-button-text));
+
+                        }
+
+                        &:hover {
+                            background-color: var(--color-white);
+                            color: var(--color-black);
+
+                            svg path {
+                                fill: var(--color-black);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Responsive */
+@media (max-width: 48rem) {
+    .subscribe-boxs {
+        padding: 2.375rem 0;
+        margin-bottom: 0;
+
+        .subscribe-box {
+            .subscribe-card {
+                padding: 6.188rem 0.438rem 10.75rem;
+
+                .subscribe-card-details {
+                    .subscribe-card-upper {
+                        p {
+                            font-size: 1rem;
+                            letter-spacing: 0.4em;
+                        }
+
+                        h5 {
+                            font-size: 2.25rem;
+                        }
+                    }
+
+                    .subscribe-card-bottom {
+                        padding: 0 0.625rem;
+                    }
+                }
+            }
+        }
+    }
+}
