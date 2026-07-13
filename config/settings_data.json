@@ -154,6 +154,33 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "11320579242087869063": {
+        "type": "shopify://apps/codify-order-cancel/blocks/cancel_button/f7f8a269-b6ea-461a-8e1b-d61167f44926",
+        "disabled": false,
+        "settings": {
+          "custom_class": "",
+          "widget_title": "",
+          "cancel_text": "",
+          "cancelled_text": "",
+          "cancelling_text": "",
+          "reorder_text": "",
+          "reordering_text": "",
+          "cancel_msg": "",
+          "disabled_msg": "",
+          "dialog_title": "",
+          "dialog_msg": "",
+          "confirm_btn_text": "",
+          "cancel_btn_text": "",
+          "reason_label": "",
+          "reason_placeholder": "",
+          "reason_select_error": "",
+          "not_cod_error": "",
+          "expired_error": "",
+          "location_error": ""
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
